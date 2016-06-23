@@ -10,8 +10,7 @@ public class Player : MonoBehaviour {
 
     private CardboardHead head;
     private Rigidbody rb;
-    private bool onFloor;
-    private float lastJumpRequestTime = 0;
+    private float lastJumpRequestTime = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -44,8 +43,8 @@ public class Player : MonoBehaviour {
         float delta = Time.time - lastJumpRequestTime;
         if(delta < 0.1)
         {
-            Jump();
             lastJumpRequestTime = 0.0f;
+            Jump();
         }
     }
 
