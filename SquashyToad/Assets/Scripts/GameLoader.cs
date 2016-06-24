@@ -8,6 +8,5 @@ public class GameLoader : MonoBehaviour {
 	public void LoadGame()
     {
         SceneManager.LoadScene("Main");
-        Debug.Log("Load Request");
     }
 }
