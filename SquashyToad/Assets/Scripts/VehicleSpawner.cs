@@ -8,15 +8,27 @@ public class VehicleSpawner : MonoBehaviour {
     public float startOffset = -10f;
     public float speed = 5.0f;
     public float length = 20.0f;
+    public float maxSpawnTime = 10.0f;
 
     // Use this for initialization
    
     void Start ()
     {
-        InstantiateVehicle();
+        StartCoroutine("Spawn");
     }
 
-    private void InstantiateVehicle()
+    IEnumerator Spawn()
+    {
+        while (true)
+        {
+            int vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
+            InstantiateVehicle(vehicleIndex);
+            WaitForSeconds randomWait = new WaitForSeconds(Random.Range(0.5f, maxSpawnTime));
+            yield return randomWait;
+        }
+    }
+
+    private void InstantiateVehicle(int vehicleIndex)
     {
         GameObject vehicleObject = Instantiate(vehiclePrefabs[0]);
         vehicleObject.transform.position = GetPositionOffset();
