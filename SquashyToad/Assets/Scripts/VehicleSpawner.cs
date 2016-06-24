@@ -21,10 +21,11 @@ public class VehicleSpawner : MonoBehaviour {
     {
         while (true)
         {
-            int vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
-            InstantiateVehicle(vehicleIndex);
             WaitForSeconds randomWait = new WaitForSeconds(Random.Range(0.5f, maxSpawnTime));
             yield return randomWait;
+
+            int vehicleIndex = Random.Range(0, vehiclePrefabs.Length);
+            InstantiateVehicle(vehicleIndex);
         }
     }
 
@@ -33,7 +34,6 @@ public class VehicleSpawner : MonoBehaviour {
         GameObject vehicleObject = Instantiate(vehiclePrefabs[0]);
         vehicleObject.transform.position = GetPositionOffset();
         vehicleObject.transform.parent = transform;
-
         Vehicle vehicleComponent = vehicleObject.GetComponent<Vehicle>();
         vehicleComponent.SetPath(speed, length);
     }
