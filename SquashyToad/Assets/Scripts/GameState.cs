@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
+    public bool IsGameOver { get; set; }
+
     public void ResetGame()
     {
         SceneManager.LoadScene("Main");
@@ -13,4 +15,6 @@ public class GameState : MonoBehaviour
     {
         SceneManager.LoadScene("SplashScreen");
     }
+
+    
 }
