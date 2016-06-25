@@ -7,7 +7,7 @@ public class GameOverMessage : MonoBehaviour {
     public float UIHeight = 1.0f;
 
     private Player player;
-    private GameState state;
+    private LevelState state;
     private Canvas canvas;
 
 
@@ -16,7 +16,7 @@ public class GameOverMessage : MonoBehaviour {
         player = GameObject.FindObjectOfType<Player>();
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
-        state = GameObject.FindObjectOfType<GameState>();
+        state = GameObject.FindObjectOfType<LevelState>();
     }
 	
 	// Update is called once per frame
