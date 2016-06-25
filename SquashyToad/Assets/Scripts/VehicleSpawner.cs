@@ -31,7 +31,7 @@ public class VehicleSpawner : MonoBehaviour {
 
     private void InstantiateVehicle(int vehicleIndex)
     {
-        GameObject vehicleObject = Instantiate(vehiclePrefabs[0]);
+        GameObject vehicleObject = Instantiate(vehiclePrefabs[vehicleIndex]);
         vehicleObject.transform.position = GetPositionOffset();
         vehicleObject.transform.parent = transform;
         Vehicle vehicleComponent = vehicleObject.GetComponent<Vehicle>();
